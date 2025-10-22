@@ -1,11 +1,5 @@
-import { Github, Twitter, Mail, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const socialLinks = [
-  { icon: Github, href: "#github", label: "GitHub", testId: "link-github" },
-  { icon: Twitter, href: "#twitter", label: "Twitter", testId: "link-twitter" },
-  { icon: Mail, href: "mailto:info@ntek.app", label: "Email", testId: "link-email" },
-];
 
 export default function Footer() {
   return (
@@ -19,22 +13,6 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground mb-4" data-testid="text-footer-tagline">
               Faster, cheaper hosting for N-Tech projects powered by Coolify and Hetzner.
             </p>
-            <div className="flex gap-4">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                    aria-label={social.label}
-                    data-testid={social.testId}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </a>
-                );
-              })}
-            </div>
           </div>
           
           <div className="flex items-center justify-center md:justify-end">
