@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle2 } from "lucide-react";
 import coolifyLogo from "@assets/coolify_logo_official.jpg";
 import hetznerLogo from "@assets/hetzner-logo-png_seeklogo-502608_1761157062650.png";
-import cloudflareLogo from "@assets/stock_images/cloudflare_logo_9925a7b7.jpg";
+import cloudflareLogo from "@assets/cloudflare-logo-png_seeklogo-294312_1761157100117.png";
 
 const coolifyBenefits = [
   "One-click deployments",
