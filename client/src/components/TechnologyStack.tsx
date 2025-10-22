@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle2 } from "lucide-react";
-import coolifyLogo from "@assets/stock_images/coolify_logo_c5712296.jpg";
+import coolifyLogo from "@assets/coolify_logo_official.jpg";
 import hetznerLogo from "@assets/stock_images/hetzner_cloud_logo_c43d307e.jpg";
 import cloudflareLogo from "@assets/stock_images/cloudflare_logo_9925a7b7.jpg";
 
