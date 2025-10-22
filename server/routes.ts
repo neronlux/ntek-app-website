@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { getUncachableResendClient } from "./resend";
+import { getResendClient } from "./resend";
 import { z } from "zod";
 
 const contactFormSchema = z.object({
@@ -15,11 +15,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validated = contactFormSchema.parse(req.body);
       
-      const { client, fromEmail } = await getUncachableResendClient();
+      const resend = getResendClient();
       
-      await client.emails.send({
+      // You'll need to set RESEND_FROM_EMAIL in your environment variables
+      // For example: "onboarding@resend.dev" or your verified domain email
+      const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+      const toEmail = process.env.RESEND_TO_EMAIL || fromEmail;
+      
+      await resend.emails.send({
         from: fromEmail,
-        to: fromEmail, // Send to yourself
+        to: toEmail,
         subject: `Contact Form: ${validated.name}`,
         html: `
           <h2>New Contact Form Submission</h2>

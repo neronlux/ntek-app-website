@@ -32,9 +32,10 @@ The `nixpacks.toml` file configures the build process:
 
 4. **Environment Variables** (set in Coolify UI):
    
-   Required for Resend integration:
-   - `REPLIT_CONNECTORS_HOSTNAME` - Your Replit connectors hostname
-   - `WEB_REPL_RENEWAL` - Your deployment token (for Resend authentication)
+   Required:
+   - `RESEND_API_KEY` - Your Resend API key (get from https://resend.com/api-keys)
+   - `RESEND_FROM_EMAIL` - Email address to send from (e.g., "onboarding@resend.dev" or your verified domain)
+   - `RESEND_TO_EMAIL` - Email address to receive contact form submissions (defaults to RESEND_FROM_EMAIL if not set)
    
    Optional:
    - `NODE_ENV` = `production` (auto-set by nixpacks.toml)
