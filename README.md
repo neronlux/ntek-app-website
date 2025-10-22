@@ -240,9 +240,7 @@ For support, email your-email@domain.com or create an issue in the GitHub reposi
 
 ## 🔗 Links
 
-- [Live Demo](https://your-domain.com)
-- [Documentation](https://your-docs.com)
-- [API Reference](https://your-api-docs.com)
+- [Live Demo](https://ntek.app)
 
 ---
 
