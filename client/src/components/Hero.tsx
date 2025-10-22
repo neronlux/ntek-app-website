@@ -26,7 +26,7 @@ export default function Hero() {
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6" data-testid="text-hero-title">
           Hosting Sites
           <br />
-          <span className="text-primary">Faster & Cheaper</span>
+          <span className="text-primary">Faster, Safer & Cheaper</span>
         </h1>
         
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12" data-testid="text-hero-description">
