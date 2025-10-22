@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle2 } from "lucide-react";
 import coolifyLogo from "@assets/stock_images/coolify_logo_c5712296.jpg";
 import hetznerLogo from "@assets/stock_images/hetzner_cloud_logo_c43d307e.jpg";
+import cloudflareLogo from "@assets/stock_images/cloudflare_logo_9925a7b7.jpg";
 
 const coolifyBenefits = [
   "One-click deployments",
@@ -18,6 +19,13 @@ const hetznerBenefits = [
   "DDoS protection"
 ];
 
+const cloudflareBenefits = [
+  "Global edge network",
+  "Advanced DDoS protection",
+  "SSL/TLS encryption",
+  "Fast DNS resolution"
+];
+
 export default function TechnologyStack() {
   return (
     <section className="py-20 bg-card">
@@ -31,7 +39,7 @@ export default function TechnologyStack() {
           </p>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <Card className="p-8" data-testid="card-coolify">
             <div className="flex items-center gap-4 mb-6">
               <img 
@@ -77,6 +85,32 @@ export default function TechnologyStack() {
             <ul className="space-y-3">
               {hetznerBenefits.map((benefit, index) => (
                 <li key={benefit} className="flex items-center gap-3" data-testid={`item-hetzner-benefit-${index}`}>
+                  <CheckCircle2 className="w-5 h-5 text-accent-foreground flex-shrink-0" />
+                  <span className="text-card-foreground">{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </Card>
+          
+          <Card className="p-8" data-testid="card-cloudflare">
+            <div className="flex items-center gap-4 mb-6">
+              <img 
+                src={cloudflareLogo} 
+                alt="Cloudflare" 
+                className="w-16 h-16 rounded-md object-cover"
+                data-testid="img-cloudflare-logo"
+              />
+              <div>
+                <h3 className="text-2xl font-bold text-card-foreground" data-testid="text-cloudflare-title">Cloudflare</h3>
+                <Badge variant="secondary" data-testid="badge-cloudflare">Security & CDN</Badge>
+              </div>
+            </div>
+            <p className="text-muted-foreground mb-6" data-testid="text-cloudflare-description">
+              World-class content delivery network and security platform protecting millions of websites globally.
+            </p>
+            <ul className="space-y-3">
+              {cloudflareBenefits.map((benefit, index) => (
+                <li key={benefit} className="flex items-center gap-3" data-testid={`item-cloudflare-benefit-${index}`}>
                   <CheckCircle2 className="w-5 h-5 text-accent-foreground flex-shrink-0" />
                   <span className="text-card-foreground">{benefit}</span>
                 </li>

@@ -20,7 +20,7 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
           <Zap className="w-4 h-4 text-primary" />
-          <span className="text-sm font-medium text-foreground" data-testid="text-hero-badge">Powered by Coolify & Hetzner</span>
+          <span className="text-sm font-medium text-foreground" data-testid="text-hero-badge">Powered by Coolify, Hetzner & Cloudflare</span>
         </div>
         
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6" data-testid="text-hero-title">
@@ -31,7 +31,7 @@ export default function Hero() {
         
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12" data-testid="text-hero-description">
           Deploy your projects with lightning-fast Coolify automation on Hetzner's 
-          premium infrastructure. Superior performance at a fraction of the cost.
+          premium infrastructure, protected by Cloudflare's global network. Superior performance at a fraction of the cost.
         </p>
         
         <div className="flex flex-wrap items-center justify-center gap-4">
