@@ -1,13 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import heroImage from "@assets/generated_images/Data_center_hero_background_bde5ac41.png";
 
 export default function Hero() {
-  const handleGetStarted = () => {
-    console.log("Get started clicked");
-    window.location.href = "https://ntek.app";
-  };
-
   const handleLearnMore = () => {
     console.log("Learn more clicked");
     const featuresSection = document.getElementById("features");
@@ -40,15 +35,6 @@ export default function Hero() {
         </p>
         
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <Button 
-            size="lg" 
-            onClick={handleGetStarted}
-            className="text-base"
-            data-testid="button-get-started"
-          >
-            Get Started
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
           <Button 
             size="lg" 
             variant="outline" 

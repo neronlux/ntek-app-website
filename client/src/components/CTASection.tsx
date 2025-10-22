@@ -1,12 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 
 export default function CTASection() {
-  const handleGetStarted = () => {
-    console.log("CTA Get started clicked");
-    window.location.href = "https://ntek.app";
-  };
-
   return (
     <section className="py-20 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -18,15 +12,6 @@ export default function CTASection() {
           Experience the speed and savings today.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <Button 
-            size="lg" 
-            onClick={handleGetStarted}
-            className="text-base"
-            data-testid="button-cta-start"
-          >
-            Get Started Now
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
           <Button 
             size="lg" 
             variant="outline"
