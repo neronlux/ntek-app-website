@@ -1,13 +1,52 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { getUncachableResendClient } from "./resend";
+import { z } from "zod";
+
+const contactFormSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Valid email is required"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // put application routes here
-  // prefix all routes with /api
+  app.post("/api/contact", async (req, res) => {
+    try {
+      const validated = contactFormSchema.parse(req.body);
+      
+      const { client, fromEmail } = await getUncachableResendClient();
+      
+      await client.emails.send({
+        from: fromEmail,
+        to: fromEmail, // Send to yourself
+        subject: `Contact Form: ${validated.name}`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${validated.name}</p>
+          <p><strong>Email:</strong> ${validated.email}</p>
+          <p><strong>Message:</strong></p>
+          <p>${validated.message.replace(/\n/g, '<br>')}</p>
+        `,
+      });
 
-  // use storage to perform CRUD operations on the storage interface
-  // e.g. storage.insertUser(user) or storage.getUserByUsername(username)
+      res.json({ success: true, message: "Message sent successfully!" });
+    } catch (error: any) {
+      console.error("Contact form error:", error);
+      
+      if (error.name === 'ZodError') {
+        return res.status(400).json({ 
+          success: false, 
+          message: error.errors[0].message 
+        });
+      }
+      
+      res.status(500).json({ 
+        success: false, 
+        message: "Failed to send message. Please try again." 
+      });
+    }
+  });
 
   const httpServer = createServer(app);
 
