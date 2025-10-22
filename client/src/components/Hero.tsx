@@ -29,7 +29,7 @@ export default function Hero() {
         </div>
         
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6" data-testid="text-hero-title">
-          Host N-Tech Sites
+          Hosting Sites
           <br />
           <span className="text-primary">Faster & Cheaper</span>
         </h1>
