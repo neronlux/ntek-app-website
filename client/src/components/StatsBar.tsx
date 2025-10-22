@@ -1,17 +1,16 @@
-import { Clock, DollarSign, Server, TrendingUp } from "lucide-react";
+import { Clock, DollarSign, TrendingUp } from "lucide-react";
 
 const stats = [
   { icon: TrendingUp, label: "Uptime", value: "99.9%", testId: "stat-uptime" },
   { icon: DollarSign, label: "Cost Savings", value: "60%", testId: "stat-savings" },
   { icon: Clock, label: "Deploy Time", value: "<5min", testId: "stat-deploy" },
-  { icon: Server, label: "Sites Hosted", value: "1000+", testId: "stat-sites" },
 ];
 
 export default function StatsBar() {
   return (
     <section className="py-12 bg-card border-y border-card-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {stats.map((stat) => {
             const Icon = stat.icon;
             return (
