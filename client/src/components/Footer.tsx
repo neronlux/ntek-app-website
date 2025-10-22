@@ -1,22 +1,5 @@
-import { Github, Twitter, Mail } from "lucide-react";
-
-const footerLinks = {
-  product: [
-    { label: "Features", href: "#features", testId: "link-features" },
-    { label: "Pricing", href: "#pricing", testId: "link-pricing" },
-    { label: "Documentation", href: "#docs", testId: "link-docs" },
-  ],
-  company: [
-    { label: "About", href: "#about", testId: "link-about" },
-    { label: "Blog", href: "#blog", testId: "link-blog" },
-    { label: "Contact", href: "mailto:info@ntek.app", testId: "link-contact" },
-  ],
-  support: [
-    { label: "Help Center", href: "#help", testId: "link-help" },
-    { label: "Status", href: "#status", testId: "link-status" },
-    { label: "Community", href: "#community", testId: "link-community" },
-  ],
-};
+import { Github, Twitter, Mail, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const socialLinks = [
   { icon: Github, href: "#github", label: "GitHub", testId: "link-github" },
@@ -28,7 +11,7 @@ export default function Footer() {
   return (
     <footer className="bg-card border-t border-card-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-8">
           <div>
             <h3 className="text-lg font-bold text-card-foreground mb-4" data-testid="text-footer-brand">
               ntek.app
@@ -54,55 +37,15 @@ export default function Footer() {
             </div>
           </div>
           
-          <div>
-            <h4 className="text-sm font-semibold text-card-foreground mb-4" data-testid="text-footer-product">Product</h4>
-            <ul className="space-y-3">
-              {footerLinks.product.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                    data-testid={link.testId}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-sm font-semibold text-card-foreground mb-4" data-testid="text-footer-company">Company</h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                    data-testid={link.testId}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-sm font-semibold text-card-foreground mb-4" data-testid="text-footer-support">Support</h4>
-            <ul className="space-y-3">
-              {footerLinks.support.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                    data-testid={link.testId}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <div className="flex items-center justify-center md:justify-end">
+            <Button 
+              variant="outline"
+              onClick={() => window.open('https://luxford.xyz', '_blank')}
+              data-testid="button-all-my-links"
+            >
+              All My Links
+              <ExternalLink className="ml-2 w-4 h-4" />
+            </Button>
           </div>
         </div>
         
