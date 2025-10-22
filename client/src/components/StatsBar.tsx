@@ -2,7 +2,7 @@ import { Clock, DollarSign, TrendingUp } from "lucide-react";
 
 const stats = [
   { icon: TrendingUp, label: "Uptime", value: "99.9%", testId: "stat-uptime" },
-  { icon: DollarSign, label: "Cost Savings", value: "60%", testId: "stat-savings" },
+  { icon: DollarSign, label: "Cost Savings", value: "60%+", testId: "stat-savings" },
   { icon: Clock, label: "Deploy Time", value: "<5min", testId: "stat-deploy" },
 ];
 
