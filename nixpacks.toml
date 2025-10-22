@@ -1,0 +1,15 @@
+# Nixpacks configuration for Coolify deployment
+providers = ["node"]
+
+[variables]
+NODE_ENV = "production"
+NIXPACKS_NODE_VERSION = "20"
+
+[phases.install]
+cmds = ["npm ci --prefer-offline --no-audit"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "npm start"
