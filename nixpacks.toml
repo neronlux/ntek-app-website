@@ -6,7 +6,7 @@ NODE_ENV = "production"
 NIXPACKS_NODE_VERSION = "20.19.0"
 
 [phases.install]
-cmds = ["rm -rf package-lock.json node_modules", "npm install --no-audit", "npm rebuild"]
+cmds = ["rm -rf package-lock.json node_modules", "npm install --no-audit --legacy-peer-deps", "npm rebuild"]
 
 [phases.build]
 cmds = ["npm run build"]
