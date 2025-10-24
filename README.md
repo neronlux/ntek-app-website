@@ -1,25 +1,45 @@
 # NTEK App Website
 
-A modern, responsive website built with React, TypeScript, and Express.js, featuring a contact form with email integration via Resend.
+A modern, responsive website built with React 19, TypeScript, and Express.js, featuring a contact form with email integration via Resend. Showcasing self-hosted infrastructure solutions with a focus on Docker containers, Coolify, Hetzner Cloud, Cloudflare, and Netdata.
 
 ## 🚀 Features
 
-- **Modern UI**: Built with React 18, TypeScript, and Tailwind CSS
+- **Modern UI**: Built with React 19, TypeScript, and Tailwind CSS
 - **Responsive Design**: Mobile-first approach with beautiful animations
 - **Contact Form**: Integrated email sending via Resend API
-- **Technology Stack Showcase**: Displays modern web technologies
+- **Technology Stack Showcase**: Displays modern infrastructure technologies
 - **Performance Optimized**: Built with Vite for fast development and production builds
 - **Production Ready**: Configured for deployment on Coolify with Nixpacks
+- **Self-Hosted Focus**: Emphasizes Docker containers and infrastructure management
+
+## 🌟 Website Content
+
+The website showcases Ntek's self-hosted infrastructure platform with:
+
+### Key Sections
+- **Hero Section**: "Self-Hosted Infrastructure Made Simple" with data center imagery
+- **Benefits**: Deploy with confidence, scale with ease, monitor everything
+- **Technology Stack**: Coolify, Hetzner Cloud, Cloudflare, Netdata
+- **Features**: One-click deployments, auto-scaling, real-time monitoring
+- **Contact Form**: Integrated with Resend for lead generation
+
+### Technology Focus
+- **Coolify**: Application deployment and management
+- **Hetzner Cloud**: Infrastructure hosting
+- **Cloudflare**: CDN and security
+- **Netdata**: Real-time monitoring
+- **Docker**: Containerization
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **React 18** with TypeScript
+- **React 19** with TypeScript
 - **Vite 7.1.11** for build tooling
 - **Tailwind CSS** for styling
 - **Radix UI** for accessible components
-- **Framer Motion** for animations
+- **Framer Motion 12** for animations
 - **React Hook Form** with Zod validation
+- **React Query** for server state management
 
 ### Backend
 - **Express.js** with TypeScript
@@ -30,6 +50,7 @@ A modern, responsive website built with React, TypeScript, and Express.js, featu
 - **Nixpacks** for Coolify deployment
 - **ESBuild** for server bundling
 - **TypeScript** for type safety
+- **Node.js 20.19.0** for runtime compatibility
 
 ## 📁 Project Structure
 
@@ -57,7 +78,7 @@ ntek-app-website/
 
 ### Prerequisites
 
-- Node.js 20.x or higher
+- Node.js 20.19.0 or higher (recommended for React 19 compatibility)
 - npm or yarn
 
 ### Installation
@@ -134,11 +155,18 @@ This project is configured for easy deployment on Coolify using Nixpacks.
 
 Nixpacks will automatically:
 1. Detect Node.js project from `package.json`
-2. Install dependencies with `npm ci`
+2. Install dependencies with `npm install --legacy-peer-deps` (for React 19 compatibility)
 3. Run `npm run build` which:
    - Builds the frontend with Vite
    - Bundles the backend with esbuild
 4. Start the app with `npm start`
+
+#### React 19 Compatibility
+
+This project uses React 19 with the following compatibility measures:
+- Updated `react-day-picker` to version 9.11.1 for React 19 support
+- Added `--legacy-peer-deps` flag to handle peer dependency conflicts
+- All major dependencies updated to React 19 compatible versions
 
 ## 📧 Contact Form Configuration
 
@@ -192,12 +220,13 @@ The contact form uses Resend for email delivery. To set up:
 ## 📦 Dependencies
 
 ### Production Dependencies
-- **React 18** - UI framework
+- **React 19** - UI framework
 - **Express** - Backend framework
 - **Resend** - Email service
 - **Radix UI** - Accessible components
 - **Tailwind CSS** - Styling
-- **Framer Motion** - Animations
+- **Framer Motion 12** - Animations
+- **React Query** - Server state management
 
 ### Development Dependencies
 - **Vite 7.1.11** - Build tool
@@ -208,9 +237,10 @@ The contact form uses Resend for email delivery. To set up:
 ## 🐛 Troubleshooting
 
 ### Build Issues
-- Ensure Node.js version is 20.x or higher
+- Ensure Node.js version is 20.19.0 or higher for React 19 compatibility
 - Clear `node_modules` and reinstall if needed
 - Check TypeScript errors with `npm run check`
+- For React 19 peer dependency warnings, use `npm install --legacy-peer-deps`
 
 ### Deployment Issues
 - Verify environment variables are set correctly
