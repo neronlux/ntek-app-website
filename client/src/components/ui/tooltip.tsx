@@ -5,12 +5,38 @@ import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * TooltipProvider Component
+ *
+ * Provides global configuration for tooltips.
+ */
 const TooltipProvider = TooltipPrimitive.Provider
 
+/**
+ * Tooltip Component
+ *
+ * A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
+ * Wraps Radix UI's Tooltip Root.
+ */
 const Tooltip = TooltipPrimitive.Root
 
+/**
+ * TooltipTrigger Component
+ *
+ * The element that triggers the tooltip.
+ */
 const TooltipTrigger = TooltipPrimitive.Trigger
 
+/**
+ * TooltipContent Component
+ *
+ * The content to be displayed within the tooltip.
+ *
+ * @param {number} [sideOffset=4] - Distance from the trigger.
+ * @param {React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>} props - Props for the content.
+ * @param {React.ElementRef<typeof TooltipPrimitive.Content>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered tooltip content.
+ */
 const TooltipContent = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>

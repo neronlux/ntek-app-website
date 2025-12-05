@@ -4,13 +4,38 @@ import { storage } from "./storage";
 import { getResendClient } from "./resend";
 import { z } from "zod";
 
+/**
+ * Zod schema for validating contact form submissions.
+ * Requires a name, a valid email, and a message of at least 10 characters.
+ */
 const contactFormSchema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().email("Valid email is required"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
+/**
+ * Registers API routes and middleware on the Express application.
+ *
+ * @param {Express} app - The Express application instance.
+ * @returns {Promise<Server>} A Promise that resolves to the created HTTP server instance.
+ */
 export async function registerRoutes(app: Express): Promise<Server> {
+  /**
+   * POST /api/contact
+   * Handles contact form submissions.
+   * Validates the request body using `contactFormSchema` and sends an email using Resend.
+   *
+   * Expected Body:
+   * - name: string
+   * - email: string
+   * - message: string
+   *
+   * Returns:
+   * - 200: { success: true, message: "Message sent successfully!" }
+   * - 400: { success: false, message: <validation error> }
+   * - 500: { success: false, message: "Failed to send message. Please try again." }
+   */
   app.post("/api/contact", async (req, res) => {
     try {
       const validated = contactFormSchema.parse(req.body);

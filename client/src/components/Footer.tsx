@@ -1,6 +1,14 @@
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+/**
+ * Footer Component
+ *
+ * Displays the footer section of the website, including branding, a brief description,
+ * an external link button, and copyright information.
+ *
+ * @returns {JSX.Element} The rendered Footer.
+ */
 export default function Footer() {
   return (
     <footer className="bg-card border-t border-card-border">

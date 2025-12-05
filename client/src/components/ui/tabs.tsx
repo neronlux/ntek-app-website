@@ -3,8 +3,19 @@ import * as TabsPrimitive from "@radix-ui/react-tabs"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Tabs Component
+ *
+ * A set of layered sections of content—known as tab panels—that are displayed one at a time.
+ * Wraps Radix UI's Tabs Root.
+ */
 const Tabs = TabsPrimitive.Root
 
+/**
+ * TabsList Component
+ *
+ * Contains the triggers that sit alongside the active content.
+ */
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
@@ -20,6 +31,11 @@ const TabsList = React.forwardRef<
 ))
 TabsList.displayName = TabsPrimitive.List.displayName
 
+/**
+ * TabsTrigger Component
+ *
+ * The button that activates its associated content.
+ */
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
@@ -35,6 +51,11 @@ const TabsTrigger = React.forwardRef<
 ))
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 
+/**
+ * TabsContent Component
+ *
+ * Contains the content associated with each trigger.
+ */
 const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>

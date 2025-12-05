@@ -5,6 +5,15 @@ import { Drawer as DrawerPrimitive } from "vaul"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Drawer Component
+ *
+ * A drawer component that slides up from the bottom of the screen.
+ * Built on top of `vaul`.
+ *
+ * @param {React.ComponentProps<typeof DrawerPrimitive.Root>} props - Props for the drawer root.
+ * @returns {JSX.Element} The rendered drawer.
+ */
 const Drawer = ({
   shouldScaleBackground = true,
   ...props
@@ -16,12 +25,36 @@ const Drawer = ({
 )
 Drawer.displayName = "Drawer"
 
+/**
+ * DrawerTrigger Component
+ *
+ * The button that opens the drawer.
+ */
 const DrawerTrigger = DrawerPrimitive.Trigger
 
+/**
+ * DrawerPortal Component
+ *
+ * Portals the drawer content into the body.
+ */
 const DrawerPortal = DrawerPrimitive.Portal
 
+/**
+ * DrawerClose Component
+ *
+ * The button that closes the drawer.
+ */
 const DrawerClose = DrawerPrimitive.Close
 
+/**
+ * DrawerOverlay Component
+ *
+ * The backdrop for the drawer.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Overlay>} props - Props for the overlay.
+ * @param {React.Ref<React.ElementRef<typeof DrawerPrimitive.Overlay>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered overlay.
+ */
 const DrawerOverlay = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Overlay>
@@ -34,6 +67,15 @@ const DrawerOverlay = React.forwardRef<
 ))
 DrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName
 
+/**
+ * DrawerContent Component
+ *
+ * The main content container of the drawer.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>} props - Props for the content.
+ * @param {React.Ref<React.ElementRef<typeof DrawerPrimitive.Content>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered content.
+ */
 const DrawerContent = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>
@@ -55,6 +97,14 @@ const DrawerContent = React.forwardRef<
 ))
 DrawerContent.displayName = "DrawerContent"
 
+/**
+ * DrawerHeader Component
+ *
+ * Container for the drawer title and description.
+ *
+ * @param {React.HTMLAttributes<HTMLDivElement>} props - Standard HTML div attributes.
+ * @returns {JSX.Element} The rendered header.
+ */
 const DrawerHeader = ({
   className,
   ...props
@@ -66,6 +116,14 @@ const DrawerHeader = ({
 )
 DrawerHeader.displayName = "DrawerHeader"
 
+/**
+ * DrawerFooter Component
+ *
+ * Container for action buttons at the bottom of the drawer.
+ *
+ * @param {React.HTMLAttributes<HTMLDivElement>} props - Standard HTML div attributes.
+ * @returns {JSX.Element} The rendered footer.
+ */
 const DrawerFooter = ({
   className,
   ...props
@@ -77,6 +135,15 @@ const DrawerFooter = ({
 )
 DrawerFooter.displayName = "DrawerFooter"
 
+/**
+ * DrawerTitle Component
+ *
+ * The title of the drawer.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Title>} props - Props for the title.
+ * @param {React.Ref<React.ElementRef<typeof DrawerPrimitive.Title>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered title.
+ */
 const DrawerTitle = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Title>
@@ -92,6 +159,15 @@ const DrawerTitle = React.forwardRef<
 ))
 DrawerTitle.displayName = DrawerPrimitive.Title.displayName
 
+/**
+ * DrawerDescription Component
+ *
+ * The description/message of the drawer.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Description>} props - Props for the description.
+ * @param {React.Ref<React.ElementRef<typeof DrawerPrimitive.Description>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered description.
+ */
 const DrawerDescription = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Description>

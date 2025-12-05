@@ -4,18 +4,24 @@ import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 
+// Extend the http module to include a rawBody property on IncomingMessage
 declare module 'http' {
   interface IncomingMessage {
     rawBody: unknown
   }
 }
+
+// Middleware to parse JSON bodies and capture raw body buffer
 app.use(express.json({
   verify: (req, _res, buf) => {
     req.rawBody = buf;
   }
 }));
+
+// Middleware to parse URL-encoded bodies
 app.use(express.urlencoded({ extended: false }));
 
+// Logging middleware to track API requests and responses
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
@@ -46,9 +52,19 @@ app.use((req, res, next) => {
   next();
 });
 
+/**
+ * Initializes and starts the Express server.
+ *
+ * This IIFE (Immediately Invoked Function Expression) performs the following steps:
+ * 1. Registers API routes.
+ * 2. Sets up global error handling middleware.
+ * 3. Configures Vite for development or serves static files for production.
+ * 4. Starts the server on the specified port (default 5000) and host (0.0.0.0).
+ */
 (async () => {
   const server = await registerRoutes(app);
 
+  // Global error handler
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";

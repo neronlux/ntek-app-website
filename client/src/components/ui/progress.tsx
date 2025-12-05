@@ -5,6 +5,17 @@ import * as ProgressPrimitive from "@radix-ui/react-progress"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Progress Component
+ *
+ * Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+ * Wraps Radix UI's Progress Root.
+ *
+ * @param {number} value - The progress value (0-100).
+ * @param {React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>} props - Props for the progress root.
+ * @param {React.Ref<React.ElementRef<typeof ProgressPrimitive.Root>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered progress bar.
+ */
 const Progress = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>

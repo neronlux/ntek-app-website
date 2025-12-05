@@ -4,6 +4,16 @@ import { Check } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Checkbox Component
+ *
+ * A control that allows the user to toggle between checked and unchecked states.
+ * Wraps Radix UI's Checkbox Root.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>} props - Props for the checkbox.
+ * @param {React.ElementRef<typeof CheckboxPrimitive.Root>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered checkbox.
+ */
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>

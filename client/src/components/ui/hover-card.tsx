@@ -5,10 +5,30 @@ import * as HoverCardPrimitive from "@radix-ui/react-hover-card"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * HoverCard Component
+ *
+ * For sighted users to preview content available behind a link.
+ * Wraps Radix UI's HoverCard Root.
+ */
 const HoverCard = HoverCardPrimitive.Root
 
+/**
+ * HoverCardTrigger Component
+ *
+ * The link that triggers the hover card.
+ */
 const HoverCardTrigger = HoverCardPrimitive.Trigger
 
+/**
+ * HoverCardContent Component
+ *
+ * The content to be displayed when hovering.
+ *
+ * @param {string} [align="center"] - Alignment of the card relative to the trigger.
+ * @param {number} [sideOffset=4] - Distance from the trigger.
+ * @returns {JSX.Element} The rendered content.
+ */
 const HoverCardContent = React.forwardRef<
   React.ElementRef<typeof HoverCardPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof HoverCardPrimitive.Content>

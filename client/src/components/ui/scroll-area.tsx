@@ -3,6 +3,16 @@ import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * ScrollArea Component
+ *
+ * Augments native scroll functionality for custom, cross-browser styling.
+ * Wraps Radix UI's ScrollArea Root.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root>} props - Props for the scroll area.
+ * @param {React.Ref<React.ElementRef<typeof ScrollAreaPrimitive.Root>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered scroll area.
+ */
 const ScrollArea = React.forwardRef<
   React.ElementRef<typeof ScrollAreaPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root>
@@ -21,6 +31,16 @@ const ScrollArea = React.forwardRef<
 ))
 ScrollArea.displayName = ScrollAreaPrimitive.Root.displayName
 
+/**
+ * ScrollBar Component
+ *
+ * The scrollbar control.
+ *
+ * @param {string} [orientation="vertical"] - Orientation of the scrollbar.
+ * @param {React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>} props - Props for the scrollbar.
+ * @param {React.Ref<React.ElementRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered scrollbar.
+ */
 const ScrollBar = React.forwardRef<
   React.ElementRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>,
   React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>
