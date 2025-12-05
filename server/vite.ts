@@ -8,6 +8,12 @@ import { nanoid } from "nanoid";
 
 const viteLogger = createLogger();
 
+/**
+ * Logs a message to the console with a timestamp and source identifier.
+ *
+ * @param {string} message - The message to log.
+ * @param {string} [source="express"] - The source of the log message (default: "express").
+ */
 export function log(message: string, source = "express") {
   const formattedTime = new Date().toLocaleTimeString("en-US", {
     hour: "numeric",
@@ -19,6 +25,13 @@ export function log(message: string, source = "express") {
   console.log(`${formattedTime} [${source}] ${message}`);
 }
 
+/**
+ * Sets up Vite middleware for development environment.
+ * Enables Hot Module Replacement (HMR) and serves the client application via Vite.
+ *
+ * @param {Express} app - The Express application instance.
+ * @param {Server} server - The HTTP server instance to attach HMR to.
+ */
 export async function setupVite(app: Express, server: Server) {
   const serverOptions = {
     middlewareMode: true,
@@ -67,6 +80,13 @@ export async function setupVite(app: Express, server: Server) {
   });
 }
 
+/**
+ * Serves static files for production environment.
+ * Assumes the client has been built to the 'public' directory.
+ *
+ * @param {Express} app - The Express application instance.
+ * @throws {Error} If the build directory (public) does not exist.
+ */
 export function serveStatic(app: Express) {
   const distPath = path.resolve(import.meta.dirname, "public");
 

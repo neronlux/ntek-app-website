@@ -4,18 +4,57 @@ import { Check, ChevronRight, Circle } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * ContextMenu Component
+ *
+ * Displays a menu located at the pointer, triggered by a right-click.
+ * Wraps Radix UI's ContextMenu Root.
+ */
 const ContextMenu = ContextMenuPrimitive.Root
 
+/**
+ * ContextMenuTrigger Component
+ *
+ * The area that triggers the context menu.
+ */
 const ContextMenuTrigger = ContextMenuPrimitive.Trigger
 
+/**
+ * ContextMenuGroup Component
+ *
+ * Groups related context menu items.
+ */
 const ContextMenuGroup = ContextMenuPrimitive.Group
 
+/**
+ * ContextMenuPortal Component
+ *
+ * Portals the context menu content into the body.
+ */
 const ContextMenuPortal = ContextMenuPrimitive.Portal
 
+/**
+ * ContextMenuSub Component
+ *
+ * Root for a submenu.
+ */
 const ContextMenuSub = ContextMenuPrimitive.Sub
 
+/**
+ * ContextMenuRadioGroup Component
+ *
+ * Groups radio items in the menu.
+ */
 const ContextMenuRadioGroup = ContextMenuPrimitive.RadioGroup
 
+/**
+ * ContextMenuSubTrigger Component
+ *
+ * Item that triggers a submenu.
+ *
+ * @param {boolean} [inset=false] - Whether to inset the content (to align with items having icons).
+ * @returns {JSX.Element} The rendered sub-trigger.
+ */
 const ContextMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.SubTrigger>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.SubTrigger> & {
@@ -37,6 +76,13 @@ const ContextMenuSubTrigger = React.forwardRef<
 ))
 ContextMenuSubTrigger.displayName = ContextMenuPrimitive.SubTrigger.displayName
 
+/**
+ * ContextMenuSubContent Component
+ *
+ * The content of a submenu.
+ *
+ * @returns {JSX.Element} The rendered sub-content.
+ */
 const ContextMenuSubContent = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.SubContent>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.SubContent>
@@ -52,6 +98,13 @@ const ContextMenuSubContent = React.forwardRef<
 ))
 ContextMenuSubContent.displayName = ContextMenuPrimitive.SubContent.displayName
 
+/**
+ * ContextMenuContent Component
+ *
+ * The main content of the context menu.
+ *
+ * @returns {JSX.Element} The rendered content.
+ */
 const ContextMenuContent = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Content>
@@ -69,6 +122,14 @@ const ContextMenuContent = React.forwardRef<
 ))
 ContextMenuContent.displayName = ContextMenuPrimitive.Content.displayName
 
+/**
+ * ContextMenuItem Component
+ *
+ * An individual item in the context menu.
+ *
+ * @param {boolean} [inset=false] - Whether to inset the content.
+ * @returns {JSX.Element} The rendered item.
+ */
 const ContextMenuItem = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Item> & {
@@ -87,6 +148,14 @@ const ContextMenuItem = React.forwardRef<
 ))
 ContextMenuItem.displayName = ContextMenuPrimitive.Item.displayName
 
+/**
+ * ContextMenuCheckboxItem Component
+ *
+ * A menu item that can be toggled on or off.
+ *
+ * @param {boolean} checked - The checked state.
+ * @returns {JSX.Element} The rendered checkbox item.
+ */
 const ContextMenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.CheckboxItem>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.CheckboxItem>
@@ -111,6 +180,13 @@ const ContextMenuCheckboxItem = React.forwardRef<
 ContextMenuCheckboxItem.displayName =
   ContextMenuPrimitive.CheckboxItem.displayName
 
+/**
+ * ContextMenuRadioItem Component
+ *
+ * A menu item that is part of a radio group.
+ *
+ * @returns {JSX.Element} The rendered radio item.
+ */
 const ContextMenuRadioItem = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.RadioItem>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.RadioItem>
@@ -133,6 +209,14 @@ const ContextMenuRadioItem = React.forwardRef<
 ))
 ContextMenuRadioItem.displayName = ContextMenuPrimitive.RadioItem.displayName
 
+/**
+ * ContextMenuLabel Component
+ *
+ * A label for a group of items.
+ *
+ * @param {boolean} [inset=false] - Whether to inset the label.
+ * @returns {JSX.Element} The rendered label.
+ */
 const ContextMenuLabel = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Label>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Label> & {
@@ -151,6 +235,13 @@ const ContextMenuLabel = React.forwardRef<
 ))
 ContextMenuLabel.displayName = ContextMenuPrimitive.Label.displayName
 
+/**
+ * ContextMenuSeparator Component
+ *
+ * A separator between items.
+ *
+ * @returns {JSX.Element} The rendered separator.
+ */
 const ContextMenuSeparator = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Separator>
@@ -163,6 +254,13 @@ const ContextMenuSeparator = React.forwardRef<
 ))
 ContextMenuSeparator.displayName = ContextMenuPrimitive.Separator.displayName
 
+/**
+ * ContextMenuShortcut Component
+ *
+ * Displays keyboard shortcut hints.
+ *
+ * @returns {JSX.Element} The rendered shortcut hint.
+ */
 const ContextMenuShortcut = ({
   className,
   ...props

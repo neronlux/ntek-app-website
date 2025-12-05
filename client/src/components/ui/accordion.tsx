@@ -4,8 +4,23 @@ import { ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Accordion Component
+ *
+ * A set of interactive headings that each reveal a section of content.
+ * Wraps Radix UI's Accordion Root.
+ */
 const Accordion = AccordionPrimitive.Root
 
+/**
+ * AccordionItem Component
+ *
+ * An item within the accordion, containing a trigger and content.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>} props - Props for the accordion item.
+ * @param {React.ElementRef<typeof AccordionPrimitive.Item>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered accordion item.
+ */
 const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
@@ -18,6 +33,16 @@ const AccordionItem = React.forwardRef<
 ))
 AccordionItem.displayName = "AccordionItem"
 
+/**
+ * AccordionTrigger Component
+ *
+ * The button that toggles the expansion of the accordion content.
+ * Includes a chevron icon that rotates when expanded.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>} props - Props for the trigger.
+ * @param {React.ElementRef<typeof AccordionPrimitive.Trigger>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered trigger button.
+ */
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
@@ -38,6 +63,16 @@ const AccordionTrigger = React.forwardRef<
 ))
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName
 
+/**
+ * AccordionContent Component
+ *
+ * The content that is revealed when the accordion trigger is clicked.
+ * Supports animation for opening and closing.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>} props - Props for the content.
+ * @param {React.ElementRef<typeof AccordionPrimitive.Content>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered content.
+ */
 const AccordionContent = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>

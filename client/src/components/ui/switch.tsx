@@ -3,6 +3,16 @@ import * as SwitchPrimitives from "@radix-ui/react-switch"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Switch Component
+ *
+ * A control that allows the user to toggle between checked and unchecked states.
+ * Wraps Radix UI's Switch Root.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>} props - Props for the switch.
+ * @param {React.Ref<React.ElementRef<typeof SwitchPrimitives.Root>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered switch.
+ */
 const Switch = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitives.Root>,
   React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>

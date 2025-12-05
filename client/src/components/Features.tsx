@@ -1,6 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { Rocket, Shield, Wrench } from "lucide-react";
 
+/**
+ * List of features highlighted in the Features section.
+ * Each feature includes an icon, title, description, and test ID.
+ */
 const features = [
   {
     icon: Rocket,
@@ -22,6 +26,14 @@ const features = [
   },
 ];
 
+/**
+ * Features Section Component
+ *
+ * Displays the core value propositions of the application (e.g., speed, infrastructure, cost).
+ * Uses a grid layout with cards for each feature.
+ *
+ * @returns {JSX.Element} The rendered Features section.
+ */
 export default function Features() {
   return (
     <section id="features" className="py-20 bg-background">

@@ -1,11 +1,23 @@
 import { Clock, DollarSign, TrendingUp } from "lucide-react";
 
+/**
+ * Statistics to be displayed in the StatsBar.
+ * Each statistic includes an icon, label, value, and test ID.
+ */
 const stats = [
   { icon: TrendingUp, label: "Uptime", value: "99.9%", testId: "stat-uptime" },
   { icon: DollarSign, label: "Cost Savings", value: "60%+", testId: "stat-savings" },
   { icon: Clock, label: "Deploy Time", value: "<5min", testId: "stat-deploy" },
 ];
 
+/**
+ * StatsBar Component
+ *
+ * Displays key statistics about the service (Uptime, Cost Savings, Deploy Time) in a horizontal bar.
+ * Designed to provide quick, impactful information to the user.
+ *
+ * @returns {JSX.Element} The rendered StatsBar section.
+ */
 export default function StatsBar() {
   return (
     <section className="py-12 bg-card border-y border-card-border">

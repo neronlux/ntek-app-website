@@ -3,6 +3,16 @@ import * as SliderPrimitive from "@radix-ui/react-slider"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Slider Component
+ *
+ * An input where the user selects a value from within a given range.
+ * Wraps Radix UI's Slider Root.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>} props - Props for the slider.
+ * @param {React.Ref<React.ElementRef<typeof SliderPrimitive.Root>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered slider.
+ */
 const Slider = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>

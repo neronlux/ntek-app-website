@@ -6,6 +6,16 @@ import { Search } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 
+/**
+ * Command Component
+ *
+ * A command palette component built on top of `cmdk`.
+ * Allows searching and selecting commands.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof CommandPrimitive>} props - Props for the command root.
+ * @param {React.Ref<React.ElementRef<typeof CommandPrimitive>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered command palette.
+ */
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive>
@@ -21,6 +31,14 @@ const Command = React.forwardRef<
 ))
 Command.displayName = CommandPrimitive.displayName
 
+/**
+ * CommandDialog Component
+ *
+ * A version of the Command component that renders inside a Dialog modal.
+ *
+ * @param {DialogProps} props - Props for the dialog.
+ * @returns {JSX.Element} The rendered command dialog.
+ */
 const CommandDialog = ({ children, ...props }: DialogProps) => {
   return (
     <Dialog {...props}>
@@ -33,6 +51,15 @@ const CommandDialog = ({ children, ...props }: DialogProps) => {
   )
 }
 
+/**
+ * CommandInput Component
+ *
+ * The input field for the command palette.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>} props - Props for the input.
+ * @param {React.Ref<React.ElementRef<typeof CommandPrimitive.Input>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered input.
+ */
 const CommandInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
@@ -52,6 +79,15 @@ const CommandInput = React.forwardRef<
 
 CommandInput.displayName = CommandPrimitive.Input.displayName
 
+/**
+ * CommandList Component
+ *
+ * The container for command items.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof CommandPrimitive.List>} props - Props for the list.
+ * @param {React.Ref<React.ElementRef<typeof CommandPrimitive.List>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered list.
+ */
 const CommandList = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.List>
@@ -65,6 +101,15 @@ const CommandList = React.forwardRef<
 
 CommandList.displayName = CommandPrimitive.List.displayName
 
+/**
+ * CommandEmpty Component
+ *
+ * Displayed when no search results are found.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty>} props - Props for the empty state.
+ * @param {React.Ref<React.ElementRef<typeof CommandPrimitive.Empty>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered empty state.
+ */
 const CommandEmpty = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Empty>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty>
@@ -78,6 +123,15 @@ const CommandEmpty = React.forwardRef<
 
 CommandEmpty.displayName = CommandPrimitive.Empty.displayName
 
+/**
+ * CommandGroup Component
+ *
+ * Groups related command items.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group>} props - Props for the group.
+ * @param {React.Ref<React.ElementRef<typeof CommandPrimitive.Group>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered group.
+ */
 const CommandGroup = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Group>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group>
@@ -94,6 +148,15 @@ const CommandGroup = React.forwardRef<
 
 CommandGroup.displayName = CommandPrimitive.Group.displayName
 
+/**
+ * CommandSeparator Component
+ *
+ * Visual separator between items or groups.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator>} props - Props for the separator.
+ * @param {React.Ref<React.ElementRef<typeof CommandPrimitive.Separator>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered separator.
+ */
 const CommandSeparator = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Separator>
@@ -106,6 +169,15 @@ const CommandSeparator = React.forwardRef<
 ))
 CommandSeparator.displayName = CommandPrimitive.Separator.displayName
 
+/**
+ * CommandItem Component
+ *
+ * An individual selectable item in the command list.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item>} props - Props for the item.
+ * @param {React.Ref<React.ElementRef<typeof CommandPrimitive.Item>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered item.
+ */
 const CommandItem = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item>
@@ -122,6 +194,14 @@ const CommandItem = React.forwardRef<
 
 CommandItem.displayName = CommandPrimitive.Item.displayName
 
+/**
+ * CommandShortcut Component
+ *
+ * Displays a keyboard shortcut hint for the command.
+ *
+ * @param {React.HTMLAttributes<HTMLSpanElement>} props - Standard HTML span attributes.
+ * @returns {JSX.Element} The rendered shortcut.
+ */
 const CommandShortcut = ({
   className,
   ...props

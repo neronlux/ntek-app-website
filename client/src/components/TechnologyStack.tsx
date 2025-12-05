@@ -5,6 +5,9 @@ import coolifyLogo from "@assets/coolify_logo_official.jpg";
 import hetznerLogo from "@assets/hetzner-logo-png_seeklogo-502608_1761157062650.png";
 import cloudflareLogo from "@assets/cloudflare-logo-png_seeklogo-294312_1761157100117.png";
 
+/**
+ * List of benefits associated with Coolify.
+ */
 const coolifyBenefits = [
   "One-click deployments",
   "Automatic SSL certificates",
@@ -12,6 +15,9 @@ const coolifyBenefits = [
   "Docker-based workflow"
 ];
 
+/**
+ * List of benefits associated with Hetzner.
+ */
 const hetznerBenefits = [
   "Enterprise SSD storage",
   "99.9% uptime guarantee",
@@ -19,6 +25,9 @@ const hetznerBenefits = [
   "DDoS protection"
 ];
 
+/**
+ * List of benefits associated with Cloudflare.
+ */
 const cloudflareBenefits = [
   "Global edge network",
   "Advanced DDoS protection",
@@ -26,6 +35,14 @@ const cloudflareBenefits = [
   "Fast DNS resolution"
 ];
 
+/**
+ * Technology Stack Component
+ *
+ * Showcases the technologies powering the platform: Coolify, Hetzner, and Cloudflare.
+ * Displays a card for each technology with its logo, description, and list of benefits.
+ *
+ * @returns {JSX.Element} The rendered TechnologyStack section.
+ */
 export default function TechnologyStack() {
   return (
     <section className="py-20 bg-card">

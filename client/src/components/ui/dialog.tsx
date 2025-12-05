@@ -6,14 +6,44 @@ import { X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Dialog Component
+ *
+ * A window overlaid on either the primary window or another dialog window.
+ * Wraps Radix UI's Dialog Root.
+ */
 const Dialog = DialogPrimitive.Root
 
+/**
+ * DialogTrigger Component
+ *
+ * The button that opens the dialog.
+ */
 const DialogTrigger = DialogPrimitive.Trigger
 
+/**
+ * DialogPortal Component
+ *
+ * Portals the dialog content into the body.
+ */
 const DialogPortal = DialogPrimitive.Portal
 
+/**
+ * DialogClose Component
+ *
+ * The button that closes the dialog.
+ */
 const DialogClose = DialogPrimitive.Close
 
+/**
+ * DialogOverlay Component
+ *
+ * The dim backdrop behind the dialog.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>} props - Props for the overlay.
+ * @param {React.Ref<React.ElementRef<typeof DialogPrimitive.Overlay>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered overlay.
+ */
 const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
@@ -29,6 +59,16 @@ const DialogOverlay = React.forwardRef<
 ))
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
 
+/**
+ * DialogContent Component
+ *
+ * The main content container of the dialog.
+ * Includes a close button.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>} props - Props for the content.
+ * @param {React.Ref<React.ElementRef<typeof DialogPrimitive.Content>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered content.
+ */
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
@@ -53,6 +93,14 @@ const DialogContent = React.forwardRef<
 ))
 DialogContent.displayName = DialogPrimitive.Content.displayName
 
+/**
+ * DialogHeader Component
+ *
+ * Container for the dialog title and description.
+ *
+ * @param {React.HTMLAttributes<HTMLDivElement>} props - Standard HTML div attributes.
+ * @returns {JSX.Element} The rendered header.
+ */
 const DialogHeader = ({
   className,
   ...props
@@ -67,6 +115,14 @@ const DialogHeader = ({
 )
 DialogHeader.displayName = "DialogHeader"
 
+/**
+ * DialogFooter Component
+ *
+ * Container for action buttons at the bottom of the dialog.
+ *
+ * @param {React.HTMLAttributes<HTMLDivElement>} props - Standard HTML div attributes.
+ * @returns {JSX.Element} The rendered footer.
+ */
 const DialogFooter = ({
   className,
   ...props
@@ -81,6 +137,15 @@ const DialogFooter = ({
 )
 DialogFooter.displayName = "DialogFooter"
 
+/**
+ * DialogTitle Component
+ *
+ * The title of the dialog.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>} props - Props for the title.
+ * @param {React.Ref<React.ElementRef<typeof DialogPrimitive.Title>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered title.
+ */
 const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
@@ -96,6 +161,15 @@ const DialogTitle = React.forwardRef<
 ))
 DialogTitle.displayName = DialogPrimitive.Title.displayName
 
+/**
+ * DialogDescription Component
+ *
+ * The description/message of the dialog.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>} props - Props for the description.
+ * @param {React.Ref<React.ElementRef<typeof DialogPrimitive.Description>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered description.
+ */
 const DialogDescription = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>

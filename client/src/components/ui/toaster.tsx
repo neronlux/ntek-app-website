@@ -8,6 +8,15 @@ import {
   ToastViewport,
 } from "@/components/ui/toast"
 
+/**
+ * Toaster Component
+ *
+ * The main container for displaying toast notifications.
+ * It consumes the `useToast` hook to get the list of active toasts and renders them.
+ * This component should be placed at the root of the application (or close to it) to ensure toasts are visible.
+ *
+ * @returns {JSX.Element} The rendered Toaster component.
+ */
 export function Toaster() {
   const { toasts } = useToast()
 

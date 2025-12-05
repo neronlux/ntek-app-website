@@ -9,6 +9,14 @@ import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { Send } from "lucide-react";
 
+/**
+ * Call-to-Action (CTA) Section Component
+ *
+ * Displays a contact form allowing users to send messages.
+ * Handles form submission using React Query and displays toast notifications on success or error.
+ *
+ * @returns {JSX.Element} The rendered CTA section with contact form.
+ */
 export default function CTASection() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

@@ -7,14 +7,44 @@ import { X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Sheet Component
+ *
+ * Extends the Dialog component to display content that complements the main screen content.
+ * Wraps Radix UI's Dialog Root.
+ */
 const Sheet = SheetPrimitive.Root
 
+/**
+ * SheetTrigger Component
+ *
+ * The button that opens the sheet.
+ */
 const SheetTrigger = SheetPrimitive.Trigger
 
+/**
+ * SheetClose Component
+ *
+ * The button that closes the sheet.
+ */
 const SheetClose = SheetPrimitive.Close
 
+/**
+ * SheetPortal Component
+ *
+ * Portals the sheet content into the body.
+ */
 const SheetPortal = SheetPrimitive.Portal
 
+/**
+ * SheetOverlay Component
+ *
+ * The dim backdrop behind the sheet.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay>} props - Props for the overlay.
+ * @param {React.Ref<React.ElementRef<typeof SheetPrimitive.Overlay>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered overlay.
+ */
 const SheetOverlay = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay>
@@ -53,6 +83,16 @@ interface SheetContentProps
   extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
     VariantProps<typeof sheetVariants> {}
 
+/**
+ * SheetContent Component
+ *
+ * The content to be displayed in the sheet.
+ *
+ * @param {string} [side="right"] - The side of the screen where the sheet appears.
+ * @param {SheetContentProps} props - Props for the content.
+ * @param {React.Ref<React.ElementRef<typeof SheetPrimitive.Content>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered content.
+ */
 const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
@@ -74,6 +114,14 @@ const SheetContent = React.forwardRef<
 ))
 SheetContent.displayName = SheetPrimitive.Content.displayName
 
+/**
+ * SheetHeader Component
+ *
+ * Container for the sheet title and description.
+ *
+ * @param {React.HTMLAttributes<HTMLDivElement>} props - Standard HTML div attributes.
+ * @returns {JSX.Element} The rendered header.
+ */
 const SheetHeader = ({
   className,
   ...props
@@ -88,6 +136,14 @@ const SheetHeader = ({
 )
 SheetHeader.displayName = "SheetHeader"
 
+/**
+ * SheetFooter Component
+ *
+ * Container for action buttons at the bottom of the sheet.
+ *
+ * @param {React.HTMLAttributes<HTMLDivElement>} props - Standard HTML div attributes.
+ * @returns {JSX.Element} The rendered footer.
+ */
 const SheetFooter = ({
   className,
   ...props
@@ -102,6 +158,15 @@ const SheetFooter = ({
 )
 SheetFooter.displayName = "SheetFooter"
 
+/**
+ * SheetTitle Component
+ *
+ * The title of the sheet.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title>} props - Props for the title.
+ * @param {React.Ref<React.ElementRef<typeof SheetPrimitive.Title>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered title.
+ */
 const SheetTitle = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title>
@@ -114,6 +179,15 @@ const SheetTitle = React.forwardRef<
 ))
 SheetTitle.displayName = SheetPrimitive.Title.displayName
 
+/**
+ * SheetDescription Component
+ *
+ * The description/message of the sheet.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description>} props - Props for the description.
+ * @param {React.Ref<React.ElementRef<typeof SheetPrimitive.Description>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered description.
+ */
 const SheetDescription = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description>
