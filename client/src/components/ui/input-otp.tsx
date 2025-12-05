@@ -4,6 +4,16 @@ import { Dot } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * InputOTP Component
+ *
+ * Accessible one-time password input component.
+ * Wraps `input-otp` library.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof OTPInput>} props - Props for the OTP input.
+ * @param {React.Ref<React.ElementRef<typeof OTPInput>>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered OTP input.
+ */
 const InputOTP = React.forwardRef<
   React.ElementRef<typeof OTPInput>,
   React.ComponentPropsWithoutRef<typeof OTPInput>
@@ -20,6 +30,14 @@ const InputOTP = React.forwardRef<
 ))
 InputOTP.displayName = "InputOTP"
 
+/**
+ * InputOTPGroup Component
+ *
+ * Groups OTP slots together.
+ *
+ * @param {React.ComponentPropsWithoutRef<"div">} props - Standard HTML div attributes.
+ * @returns {JSX.Element} The rendered group.
+ */
 const InputOTPGroup = React.forwardRef<
   React.ElementRef<"div">,
   React.ComponentPropsWithoutRef<"div">
@@ -28,6 +46,15 @@ const InputOTPGroup = React.forwardRef<
 ))
 InputOTPGroup.displayName = "InputOTPGroup"
 
+/**
+ * InputOTPSlot Component
+ *
+ * Represents a single character slot in the OTP input.
+ * Handles display of the character and the caret.
+ *
+ * @param {number} index - The index of the slot.
+ * @returns {JSX.Element} The rendered slot.
+ */
 const InputOTPSlot = React.forwardRef<
   React.ElementRef<"div">,
   React.ComponentPropsWithoutRef<"div"> & { index: number }
@@ -56,6 +83,13 @@ const InputOTPSlot = React.forwardRef<
 })
 InputOTPSlot.displayName = "InputOTPSlot"
 
+/**
+ * InputOTPSeparator Component
+ *
+ * A separator dot between groups of slots.
+ *
+ * @returns {JSX.Element} The rendered separator.
+ */
 const InputOTPSeparator = React.forwardRef<
   React.ElementRef<"div">,
   React.ComponentPropsWithoutRef<"div">

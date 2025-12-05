@@ -3,10 +3,30 @@ import * as PopoverPrimitive from "@radix-ui/react-popover"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Popover Component
+ *
+ * Displays rich content in a portal, triggered by a button.
+ * Wraps Radix UI's Popover Root.
+ */
 const Popover = PopoverPrimitive.Root
 
+/**
+ * PopoverTrigger Component
+ *
+ * The button that toggles the popover.
+ */
 const PopoverTrigger = PopoverPrimitive.Trigger
 
+/**
+ * PopoverContent Component
+ *
+ * The content to be displayed in the popover.
+ *
+ * @param {string} [align="center"] - Alignment relative to the trigger.
+ * @param {number} [sideOffset=4] - Distance from the trigger.
+ * @returns {JSX.Element} The rendered content.
+ */
 const PopoverContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>

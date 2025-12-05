@@ -2,6 +2,16 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Input Component
+ *
+ * A styled input field component.
+ * Includes styles for focus states, placeholders, and disabled states.
+ *
+ * @param {React.ComponentProps<"input">} props - Standard HTML input attributes.
+ * @param {React.Ref<HTMLInputElement>} ref - Forwarded ref to the input element.
+ * @returns {JSX.Element} The rendered input field.
+ */
 const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
   ({ className, type, ...props }, ref) => {
     // h-9 to match icon buttons and default buttons.

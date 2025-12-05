@@ -2,6 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Zap } from "lucide-react";
 import heroImage from "@assets/generated_images/Data_center_hero_background_bde5ac41.png";
 
+/**
+ * Hero Section Component
+ *
+ * The main landing section of the website. It features a background image, a headline,
+ * a descriptive tagline, and a "Learn More" button that scrolls to the Features section.
+ *
+ * @returns {JSX.Element} The rendered Hero section.
+ */
 export default function Hero() {
   const handleLearnMore = () => {
     console.log("Learn more clicked");

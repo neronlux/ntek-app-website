@@ -4,6 +4,15 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Breadcrumb Component
+ *
+ * A navigation component that indicates the current page's location within a navigational hierarchy.
+ *
+ * @param {React.ComponentPropsWithoutRef<"nav">} props - Props for the nav element.
+ * @param {React.Ref<HTMLElement>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered breadcrumb nav.
+ */
 const Breadcrumb = React.forwardRef<
   HTMLElement,
   React.ComponentPropsWithoutRef<"nav"> & {
@@ -12,6 +21,15 @@ const Breadcrumb = React.forwardRef<
 >(({ ...props }, ref) => <nav ref={ref} aria-label="breadcrumb" {...props} />)
 Breadcrumb.displayName = "Breadcrumb"
 
+/**
+ * BreadcrumbList Component
+ *
+ * The ordered list container for breadcrumb items.
+ *
+ * @param {React.ComponentPropsWithoutRef<"ol">} props - Props for the list.
+ * @param {React.Ref<HTMLOListElement>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered list.
+ */
 const BreadcrumbList = React.forwardRef<
   HTMLOListElement,
   React.ComponentPropsWithoutRef<"ol">
@@ -27,6 +45,15 @@ const BreadcrumbList = React.forwardRef<
 ))
 BreadcrumbList.displayName = "BreadcrumbList"
 
+/**
+ * BreadcrumbItem Component
+ *
+ * An individual item in the breadcrumb list.
+ *
+ * @param {React.ComponentPropsWithoutRef<"li">} props - Props for the list item.
+ * @param {React.Ref<HTMLLIElement>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered item.
+ */
 const BreadcrumbItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentPropsWithoutRef<"li">
@@ -39,6 +66,15 @@ const BreadcrumbItem = React.forwardRef<
 ))
 BreadcrumbItem.displayName = "BreadcrumbItem"
 
+/**
+ * BreadcrumbLink Component
+ *
+ * A link within a breadcrumb item.
+ *
+ * @param {React.ComponentPropsWithoutRef<"a"> & { asChild?: boolean }} props - Props for the link.
+ * @param {React.Ref<HTMLAnchorElement>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered link.
+ */
 const BreadcrumbLink = React.forwardRef<
   HTMLAnchorElement,
   React.ComponentPropsWithoutRef<"a"> & {
@@ -57,6 +93,15 @@ const BreadcrumbLink = React.forwardRef<
 })
 BreadcrumbLink.displayName = "BreadcrumbLink"
 
+/**
+ * BreadcrumbPage Component
+ *
+ * Represents the current page in the breadcrumb trail.
+ *
+ * @param {React.ComponentPropsWithoutRef<"span">} props - Props for the span.
+ * @param {React.Ref<HTMLSpanElement>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered page indicator.
+ */
 const BreadcrumbPage = React.forwardRef<
   HTMLSpanElement,
   React.ComponentPropsWithoutRef<"span">
@@ -72,6 +117,14 @@ const BreadcrumbPage = React.forwardRef<
 ))
 BreadcrumbPage.displayName = "BreadcrumbPage"
 
+/**
+ * BreadcrumbSeparator Component
+ *
+ * Visual separator between breadcrumb items.
+ *
+ * @param {React.ComponentProps<"li">} props - Props for the separator.
+ * @returns {JSX.Element} The rendered separator.
+ */
 const BreadcrumbSeparator = ({
   children,
   className,
@@ -88,6 +141,14 @@ const BreadcrumbSeparator = ({
 )
 BreadcrumbSeparator.displayName = "BreadcrumbSeparator"
 
+/**
+ * BreadcrumbEllipsis Component
+ *
+ * Displays an ellipsis to indicate hidden breadcrumb items.
+ *
+ * @param {React.ComponentProps<"span">} props - Props for the span.
+ * @returns {JSX.Element} The rendered ellipsis.
+ */
 const BreadcrumbEllipsis = ({
   className,
   ...props

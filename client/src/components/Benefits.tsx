@@ -1,6 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { Activity, Code, Database, GitBranch, Globe, Lock } from "lucide-react";
 
+/**
+ * List of benefits displayed in the section.
+ * Each benefit includes an icon, title, description, and test ID.
+ */
 const benefits = [
   {
     icon: Code,
@@ -40,6 +44,14 @@ const benefits = [
   },
 ];
 
+/**
+ * Benefits Section Component
+ *
+ * Displays a grid of cards highlighting the key features and benefits of the platform.
+ * Used on the landing page to showcase capabilities like Git integration, database support, etc.
+ *
+ * @returns {JSX.Element} The rendered Benefits section.
+ */
 export default function Benefits() {
   return (
     <section className="py-20 bg-background">

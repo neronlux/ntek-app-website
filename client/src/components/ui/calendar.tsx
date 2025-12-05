@@ -5,8 +5,21 @@ import { DayPicker } from "react-day-picker"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 
+/**
+ * Props for the Calendar component.
+ * Inherits from `react-day-picker`'s DayPicker props.
+ */
 export type CalendarProps = React.ComponentProps<typeof DayPicker>
 
+/**
+ * Calendar Component
+ *
+ * A date picker component built on top of `react-day-picker`.
+ * Styled to match the application's theme.
+ *
+ * @param {CalendarProps} props - The props for the calendar.
+ * @returns {JSX.Element} The rendered calendar.
+ */
 function Calendar({
   className,
   classNames,

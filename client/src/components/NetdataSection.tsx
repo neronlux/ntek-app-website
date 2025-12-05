@@ -1,6 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { Activity, BarChart3, Eye, Zap } from "lucide-react";
 
+/**
+ * List of Netdata features displayed in the section.
+ * Each feature includes an icon, title, description, and test ID.
+ */
 const netdataFeatures = [
   {
     icon: Activity,
@@ -28,6 +32,14 @@ const netdataFeatures = [
   },
 ];
 
+/**
+ * Netdata Section Component
+ *
+ * Highlights the integration with Netdata for monitoring.
+ * Displays a grid of features provided by Netdata and a descriptive highlight block.
+ *
+ * @returns {JSX.Element} The rendered Netdata section.
+ */
 export default function NetdataSection() {
   return (
     <section className="py-20 bg-card">

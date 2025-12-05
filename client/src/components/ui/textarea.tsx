@@ -2,6 +2,16 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Textarea Component
+ *
+ * A styled textarea component for multi-line text input.
+ * Includes styles for focus states, placeholders, and disabled states.
+ *
+ * @param {React.ComponentProps<"textarea">} props - Standard HTML textarea attributes.
+ * @param {React.Ref<HTMLTextAreaElement>} ref - Forwarded ref to the textarea element.
+ * @returns {JSX.Element} The rendered textarea.
+ */
 const Textarea = React.forwardRef<
   HTMLTextAreaElement,
   React.ComponentProps<"textarea">

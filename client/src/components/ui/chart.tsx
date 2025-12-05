@@ -8,6 +8,10 @@ import { cn } from "@/lib/utils"
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const
 
+/**
+ * Configuration object for chart theming and labels.
+ * Map of keys to label, icon, and color/theme settings.
+ */
 export type ChartConfig = {
   [k in string]: {
     label?: React.ReactNode
@@ -24,6 +28,12 @@ type ChartContextProps = {
 
 const ChartContext = React.createContext<ChartContextProps | null>(null)
 
+/**
+ * Hook to access the Chart context.
+ *
+ * @throws {Error} If used outside of a ChartContainer.
+ * @returns {ChartContextProps} The chart context.
+ */
 function useChart() {
   const context = React.useContext(ChartContext)
 
@@ -34,6 +44,17 @@ function useChart() {
   return context
 }
 
+/**
+ * ChartContainer Component
+ *
+ * Wrapper for Recharts charts that provides theming context and CSS variables.
+ *
+ * @param {ChartConfig} config - The chart configuration object.
+ * @param {React.ReactNode} children - The Recharts component to render.
+ * @param {React.HTMLAttributes<HTMLDivElement>} props - Additional div props.
+ * @param {React.Ref<HTMLDivElement>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered chart container.
+ */
 const ChartContainer = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> & {
@@ -100,8 +121,24 @@ ${colorConfig
   )
 }
 
+/**
+ * ChartTooltip Component
+ *
+ * Recharts Tooltip wrapper.
+ */
 const ChartTooltip = RechartsPrimitive.Tooltip
 
+/**
+ * ChartTooltipContent Component
+ *
+ * Custom content for the chart tooltip.
+ * Automatically formats labels and values based on the chart config.
+ *
+ * @param {boolean} [hideLabel=false] - Whether to hide the label.
+ * @param {boolean} [hideIndicator=false] - Whether to hide the color indicator.
+ * @param {string} [indicator="dot"] - Style of the indicator ("dot", "line", "dashed").
+ * @returns {JSX.Element} The rendered tooltip content.
+ */
 const ChartTooltipContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
@@ -256,8 +293,21 @@ const ChartTooltipContent = React.forwardRef<
 )
 ChartTooltipContent.displayName = "ChartTooltip"
 
+/**
+ * ChartLegend Component
+ *
+ * Recharts Legend wrapper.
+ */
 const ChartLegend = RechartsPrimitive.Legend
 
+/**
+ * ChartLegendContent Component
+ *
+ * Custom content for the chart legend.
+ *
+ * @param {boolean} [hideIcon=false] - Whether to hide the icon.
+ * @returns {JSX.Element} The rendered legend content.
+ */
 const ChartLegendContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> &

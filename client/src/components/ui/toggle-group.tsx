@@ -14,6 +14,16 @@ const ToggleGroupContext = React.createContext<
   variant: "default",
 })
 
+/**
+ * ToggleGroup Component
+ *
+ * A set of two-state buttons that can be toggled on or off.
+ * Wraps Radix UI's ToggleGroup Root.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> & VariantProps<typeof toggleVariants>} props - Props for the group.
+ * @param {React.ElementRef<typeof ToggleGroupPrimitive.Root>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered toggle group.
+ */
 const ToggleGroup = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> &
@@ -32,6 +42,15 @@ const ToggleGroup = React.forwardRef<
 
 ToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName
 
+/**
+ * ToggleGroupItem Component
+ *
+ * An item within the toggle group.
+ *
+ * @param {React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item> & VariantProps<typeof toggleVariants>} props - Props for the item.
+ * @param {React.ElementRef<typeof ToggleGroupPrimitive.Item>} ref - Forwarded ref.
+ * @returns {JSX.Element} The rendered toggle item.
+ */
 const ToggleGroupItem = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item> &

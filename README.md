@@ -168,6 +168,16 @@ This project uses React 19 with the following compatibility measures:
 - Added `--legacy-peer-deps` flag to handle peer dependency conflicts
 - All major dependencies updated to React 19 compatible versions
 
+## 📚 Documentation
+
+The repository is fully documented with JSDoc comments for all components, hooks, and utility functions.
+
+- **UI Components**: Located in `client/src/components/ui/`, these are accessible, reusable components built on Radix UI.
+- **Custom Components**: Located in `client/src/components/`, these are specific to the website sections (Hero, Features, etc.).
+- **Server Logic**: Located in `server/`, handles API routes and email integration.
+
+For detailed information on a specific function or component, refer to the inline documentation within the source files.
+
 ## 📧 Contact Form Configuration
 
 The contact form uses Resend for email delivery. To set up:
