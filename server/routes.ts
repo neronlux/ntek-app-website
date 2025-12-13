@@ -5,6 +5,20 @@ import { getResendClient } from "./resend";
 import { z } from "zod";
 
 /**
+ * Escapes HTML characters in a string to prevent XSS.
+ * @param {string} unsafe - The string to escape.
+ * @returns {string} The escaped string.
+ */
+function escapeHtml(unsafe: string): string {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+/**
  * Zod schema for validating contact form submissions.
  * Requires a name, a valid email, and a message of at least 10 characters.
  */
@@ -53,10 +67,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         subject: `Contact Form: ${validated.name}`,
         html: `
           <h2>New Contact Form Submission</h2>
-          <p><strong>Name:</strong> ${validated.name}</p>
-          <p><strong>Email:</strong> ${validated.email}</p>
+          <p><strong>Name:</strong> ${escapeHtml(validated.name)}</p>
+          <p><strong>Email:</strong> ${escapeHtml(validated.email)}</p>
           <p><strong>Message:</strong></p>
-          <p>${validated.message.replace(/\n/g, '<br>')}</p>
+          <p>${escapeHtml(validated.message).replace(/\n/g, '<br>')}</p>
         `,
       });
 
