@@ -4,6 +4,13 @@ import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 
+// Security: Disable the X-Powered-By header to reduce fingerprinting
+app.disable("x-powered-by");
+
+// Security: Trust the first proxy to ensure correct IP detection for rate limiting
+// This is important when deployed behind a reverse proxy (e.g. Nginx, Cloudflare)
+app.set("trust proxy", 1);
+
 // Extend the http module to include a rawBody property on IncomingMessage
 declare module 'http' {
   interface IncomingMessage {
