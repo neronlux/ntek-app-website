@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { getResendClient } from "./resend";
+import { contactRateLimit } from "./middleware/rateLimit";
 import { z } from "zod";
 
 /**
@@ -48,9 +49,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
    * Returns:
    * - 200: { success: true, message: "Message sent successfully!" }
    * - 400: { success: false, message: <validation error> }
+   * - 429: { success: false, message: "Too many requests. Please try again later." }
    * - 500: { success: false, message: "Failed to send message. Please try again." }
    */
-  app.post("/api/contact", async (req, res) => {
+  app.post("/api/contact", contactRateLimit, async (req, res) => {
     try {
       const validated = contactFormSchema.parse(req.body);
       
