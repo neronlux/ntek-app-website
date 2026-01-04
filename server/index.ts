@@ -4,6 +4,9 @@ import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 
+// Trust the first proxy to ensure accurate IP detection for rate limiting
+app.set('trust proxy', 1);
+
 // Extend the http module to include a rawBody property on IncomingMessage
 declare module 'http' {
   interface IncomingMessage {

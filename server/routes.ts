@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { getResendClient } from "./resend";
 import { z } from "zod";
+import { contactRateLimit } from "./middleware/rateLimit";
 
 /**
  * Escapes HTML characters in a string to prevent XSS.
@@ -50,7 +51,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
    * - 400: { success: false, message: <validation error> }
    * - 500: { success: false, message: "Failed to send message. Please try again." }
    */
-  app.post("/api/contact", async (req, res) => {
+  app.post("/api/contact", contactRateLimit, async (req, res) => {
     try {
       const validated = contactFormSchema.parse(req.body);
       
