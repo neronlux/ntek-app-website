@@ -3,6 +3,8 @@
 ## Design Approach
 **Reference-Based Strategy**: Drawing inspiration from modern hosting platforms (Vercel, Railway, Render) with a tech-forward aesthetic that balances professionalism with approachability. Emphasis on speed, efficiency, and modern developer experience.
 
+This document provides comprehensive design guidelines for the ntek.app website, ensuring consistency across all components and sections.
+
 ## Core Design Elements
 
 ### Color Palette
@@ -32,47 +34,155 @@
 - **Grid**: 3-column on desktop (lg:grid-cols-3), 2-column tablet (md:grid-cols-2), single mobile
 
 ### Component Library
-**Hero Section**: Full-width with background image showing server infrastructure/data center aesthetics, overlaid gradient (from primary/20% to transparent), large headline, supporting text, dual CTA buttons (primary solid, secondary outline with blur backdrop)
 
-**Feature Cards**: 3-column grid with gradient borders, icons from Heroicons, title, description, hover lift effect
+#### Hero Section
+- **Layout**: Full-width with background image showing server infrastructure/data center aesthetics
+- **Background**: Gradient overlay from `background/60` via `background/80` to `background`
+- **Height**: `min-h-[90vh]` with centered content
+- **Badge**: "Powered by Coolify, Hetzner & Cloudflare" with Zap icon
+- **Headline**: "Hosting Sites Faster, Safer & Cheaper" (text-5xl to text-7xl, bold)
+- **Description**: Paragraph about Coolify automation on Hetzner infrastructure protected by Cloudflare
+- **CTA**: Single "Learn More" button with outline variant and backdrop blur
 
-**Stats/Metrics Bar**: 4-column horizontal showcase displaying key numbers (uptime %, cost savings, deployment speed, sites hosted)
+#### Stats Bar
+- **Layout**: Horizontal showcase displaying key metrics
+- **Components**: [`StatsBar.tsx`](client/src/components/StatsBar.tsx)
 
-**Technology Stack**: 2-column asymmetric layout - left side with Coolify + Hetzner logos/descriptions, right side with benefits list
+#### Feature Cards
+- **Layout**: 3-column grid (responsive: 1-column mobile, 2-column tablet, 3-column desktop)
+- **Card Component**: Uses [`Card`](client/src/components/ui/card.tsx) with `hover-elevate` class
+- **Icons**: Lucide React icons (Rocket, Shield, Wrench)
+- **Content**: Title and description per card
+- **Background**: Primary color icon containers with `bg-primary/10`
 
-**Testimonial/Trust Section**: Single column centered quotes with subtle borders
+#### Technology Stack
+- **Layout**: 3-column grid (responsive: 1-column mobile, 2-column tablet, 3-column desktop)
+- **Technologies**: Coolify, Hetzner, Cloudflare
+- **Card Component**: Uses [`Card`](client/src/components/ui/card.tsx) with logos and benefits
+- **Icons**: CheckCircle2 from Lucide React for benefit items
+- **Badges**: Secondary variant badges for technology labels
+- **Benefits**: List of 4 benefits per technology
 
-**CTA Section**: Full-width with gradient background, centered content, primary action button
+#### Netdata Section
+- **Layout**: Showcasing Netdata monitoring capabilities
+- **Components**: [`NetdataSection.tsx`](client/src/components/NetdataSection.tsx)
 
-**Footer**: 3-column layout (About, Quick Links, Contact) with subtle top border
+#### Benefits Section
+- **Layout**: Highlighting key benefits of the platform
+- **Components**: [`Benefits.tsx`](client/src/components/Benefits.tsx)
+
+#### CTA Section
+- **Layout**: Full-width with centered content
+- **Components**: [`CTASection.tsx`](client/src/components/CTASection.tsx)
+
+#### Footer
+- **Layout**: Multi-column layout with links and information
+- **Components**: [`Footer.tsx`](client/src/components/Footer.tsx)
 
 ### Images
-**Hero Image**: Required - Modern server room, cloud infrastructure visualization, or abstract tech pattern. Should convey speed, reliability, and modern infrastructure. Full-width background with dark overlay (40% opacity) for text legibility.
 
-**Technology Logos**: Coolify and Hetzner official logos displayed prominently in technology stack section
+#### Hero Image
+- **Location**: [`attached_assets/generated_images/Data_center_hero_background_bde5ac41.png`](attached_assets/generated_images/Data_center_hero_background_bde5ac41.png)
+- **Style**: Modern server room, cloud infrastructure visualization
+- **Purpose**: Convey speed, reliability, and modern infrastructure
+- **Overlay**: Gradient from `background/60` via `background/80` to `background` for text legibility
 
-**Decorative Elements**: Abstract geometric patterns or grid overlays as subtle background accents in feature sections
+#### Technology Logos
+- **Coolify**: [`attached_assets/coolify_logo_official.jpg`](attached_assets/coolify_logo_official.jpg)
+- **Hetzner**: [`attached_assets/hetzner-logo-png_seeklogo-502608_1761157062650.png`](attached_assets/hetzner-logo-png_seeklogo-502608_1761157062650.png)
+- **Cloudflare**: [`attached_assets/cloudflare-logo-png_seeklogo-294312_1761157100117.png`](attached_assets/cloudflare-logo-png_seeklogo-294312_1761157100117.png)
+- **Stock Images**: Available in [`attached_assets/stock_images/`](attached_assets/stock_images/)
+
+#### Decorative Elements
+- Abstract geometric patterns or grid overlays as subtle background accents in feature sections
 
 ### Animations
+
 **Minimal and Purpose-Driven**:
-- Smooth scroll behavior
-- Subtle hover lift on cards (translateY -2px)
-- Fade-in on scroll for sections (use Intersection Observer)
+- Smooth scroll behavior for anchor links
+- Subtle hover lift on cards (`hover-elevate` class)
+- Fade-in on scroll for sections (can use Intersection Observer)
 - No distracting parallax or continuous animations
 
-## Page Structure (6-7 Sections)
+#### Custom Animation Classes
+- `hover-elevate`: Subtle lift effect on card hover
 
-1. **Hero**: Full viewport (90vh), background image, headline "Host N-Tech Sites Faster & Cheaper", subheadline about Coolify + Hetzner, dual CTAs
-2. **Stats Bar**: Horizontal metrics showcase immediately below hero
-3. **Features Grid**: 3-column highlighting speed, cost-effectiveness, and ease of deployment
-4. **Technology Stack**: Asymmetric 2-column showcasing Coolify automation + Hetzner infrastructure
-5. **Benefits Deep Dive**: 2-column alternating layout with detailed explanations and visual icons
-6. **Final CTA**: Gradient background section with compelling invitation to try ntek.app
-7. **Footer**: Comprehensive 3-column with social links, documentation, support contact
+## Page Structure
+
+The website consists of the following sections (in order):
+
+1. **Hero** ([`Hero.tsx`](client/src/components/Hero.tsx))
+   - Full viewport (90vh) with background image
+   - Headline: "Hosting Sites Faster, Safer & Cheaper"
+   - Badge: "Powered by Coolify, Hetzner & Cloudflare"
+   - Subheadline about Coolify automation on Hetzner infrastructure protected by Cloudflare
+   - Single "Learn More" CTA button
+
+2. **Stats Bar** ([`StatsBar.tsx`](client/src/components/StatsBar.tsx))
+   - Horizontal metrics showcase immediately below hero
+   - Displays key performance metrics
+
+3. **Features Grid** ([`Features.tsx`](client/src/components/Features.tsx))
+   - Title: "Why Choose ntek.app?"
+   - 3-column grid highlighting:
+     - Lightning Fast Deployment
+     - Premium Infrastructure
+     - Cost Effective
+
+4. **Technology Stack** ([`TechnologyStack.tsx`](client/src/components/TechnologyStack.tsx))
+   - Title: "Built on the Best Technology"
+   - 3-column grid showcasing:
+     - Coolify (Deployment Platform)
+     - Hetzner (Cloud Infrastructure)
+     - Cloudflare (Security & CDN)
+   - Each technology includes logo, description, and 4 benefits
+
+5. **Benefits Section** ([`Benefits.tsx`](client/src/components/Benefits.tsx))
+   - Detailed benefits of the platform
+
+6. **Netdata Section** ([`NetdataSection.tsx`](client/src/components/NetdataSection.tsx))
+   - Showcasing real-time monitoring capabilities
+
+7. **CTA Section** ([`CTASection.tsx`](client/src/components/CTASection.tsx))
+   - Final call-to-action with compelling invitation
+
+8. **Footer** ([`Footer.tsx`](client/src/components/Footer.tsx))
+   - Comprehensive footer with links and information
 
 ## Key Design Principles
+
 - **Tech-Forward Minimalism**: Clean layouts with purposeful use of color
 - **Performance Emphasis**: Visual hierarchy that reinforces speed messaging
 - **Developer-Focused**: Technical credibility through typography and color choices
 - **Trust Building**: Professional aesthetics with clear information architecture
 - **Conversion-Optimized**: Strategic CTA placement without overwhelming the user
+- **Accessibility**: Proper use of semantic HTML, ARIA labels, and keyboard navigation
+- **Responsive Design**: Mobile-first approach with breakpoints for tablet and desktop
+
+## Component References
+
+All components are located in [`client/src/components/`](client/src/components/) and include:
+
+- **UI Components**: Reusable components in [`client/src/components/ui/`](client/src/components/ui/) built on Radix UI
+- **Page Components**: Section-specific components in [`client/src/components/`](client/src/components/)
+- **Example Components**: Reference implementations in [`client/src/components/examples/`](client/src/components/examples/)
+
+## Implementation Notes
+
+### Tailwind CSS Configuration
+- Design tokens are configured in [`tailwind.config.ts`](tailwind.config.ts)
+- Custom colors and spacing are defined using HSL values
+- Responsive breakpoints follow mobile-first approach
+
+### Icon Library
+- Uses Lucide React for consistent iconography
+- Icons are imported from `lucide-react` package
+
+### Testing
+- All components include `data-testid` attributes for testing
+- Test IDs follow a consistent naming convention
+
+## Related Documentation
+
+- [`README.md`](README.md) - Project overview and setup instructions
+- [`DEPLOYMENT.md`](DEPLOYMENT.md) - Coolify deployment guide
