@@ -1,11 +1,18 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { securityHeaders } from "./middleware/security";
 
 const app = express();
 
 // Trust the first proxy to ensure accurate IP detection for rate limiting
 app.set('trust proxy', 1);
+
+// Disable the X-Powered-By header to reduce fingerprinting
+app.disable('x-powered-by');
+
+// Add security headers to all responses
+app.use(securityHeaders);
 
 // Extend the http module to include a rawBody property on IncomingMessage
 declare module 'http' {
@@ -62,7 +69,8 @@ app.use((req, res, next) => {
     const message = err.message || "Internal Server Error";
 
     res.status(status).json({ message });
-    throw err;
+    // Do not throw err here; the request is handled.
+    // Logging is handled by the logging middleware or console.error in routes.
   });
 
   // importantly only setup vite in development and after

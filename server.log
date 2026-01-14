@@ -1,0 +1,32 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development tsx server/index.ts
+
+8:02:40 AM [express] serving on port 5000
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+8:02:44 AM [express] HEAD /api/contact 200 in 50ms
+
+A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+8:02:55 AM [express] HEAD /api/contact 200 in 9ms
+Contact form error: ZodError: [
+  {
+    "expected": "object",
+    "code": "invalid_type",
+    "path": [],
+    "message": "Invalid input: expected object, received undefined"
+  }
+]
+    at <anonymous> (/app/server/routes.ts:56:43)
+    at Layer.handleRequest (/app/node_modules/router/lib/layer.js:152:17)
+    at next (/app/node_modules/router/lib/route.js:157:13)
+    at file:///app/node_modules/express-rate-limit/dist/index.mjs:913:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///app/node_modules/express-rate-limit/dist/index.mjs:796:5
+8:03:01 AM [express] POST /api/contact 500 in 7ms
+TypeError: Cannot read properties of undefined (reading '0')
+    at <anonymous> (/app/server/routes.ts:85:26)
+    at Layer.handleRequest (/app/node_modules/router/lib/layer.js:152:17)
+    at next (/app/node_modules/router/lib/route.js:157:13)
+    at file:///app/node_modules/express-rate-limit/dist/index.mjs:913:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///app/node_modules/express-rate-limit/dist/index.mjs:796:5
