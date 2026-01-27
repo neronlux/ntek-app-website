@@ -22,13 +22,36 @@ export function securityHeaders(_req: Request, res: Response, next: NextFunction
   // Control how much referrer information is sent
   res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
 
-  // Basic Content Security Policy
-  // allowing 'unsafe-inline' and 'unsafe-eval' for now to ensure compatibility
-  // with Vite and existing scripts, but restricting sources to 'self' and common ones.
-  res.setHeader(
-    "Content-Security-Policy",
-    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https: blob:; connect-src 'self' https: ws: wss:;"
-  );
+  // Content Security Policy
+  const isDev = process.env.NODE_ENV === "development";
+
+  // In development, we need 'unsafe-inline' and 'unsafe-eval' for Vite HMR
+  const scriptSrc = isDev
+    ? "'self' 'unsafe-inline' 'unsafe-eval'"
+    : "'self'";
+
+  // We allow 'unsafe-inline' in style-src because:
+  // 1. Certain UI components (like Charts) inject dynamic styles
+  // 2. Google Fonts compatibility
+  const styleSrc = "'self' 'unsafe-inline' https://fonts.googleapis.com";
+
+  const fontSrc = "'self' data: https://fonts.gstatic.com";
+
+  const imgSrc = "'self' data: https: blob:";
+
+  const connectSrc = "'self' https: ws: wss:";
+
+  const csp = [
+    "default-src 'self'",
+    `script-src ${scriptSrc}`,
+    `style-src ${styleSrc}`,
+    `font-src ${fontSrc}`,
+    `img-src ${imgSrc}`,
+    `connect-src ${connectSrc}`,
+    "upgrade-insecure-requests"
+  ].join("; ");
+
+  res.setHeader("Content-Security-Policy", csp);
 
   next();
 }
