@@ -68,9 +68,15 @@ app.use((req, res, next) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
 
-    res.status(status).json({ message });
-    // Do not throw err here; the request is handled.
-    // Logging is handled by the logging middleware or console.error in routes.
+    // Log the error for server-side debugging
+    console.error(`[Error] ${status}:`, err);
+
+    // In production, don't leak error details for 500s
+    const safeMessage = (status === 500 && app.get("env") === "production")
+      ? "Internal Server Error"
+      : message;
+
+    res.status(status).json({ message: safeMessage });
   });
 
   // importantly only setup vite in development and after
