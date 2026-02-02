@@ -93,6 +93,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // API 404 catch-all
+  app.use("/api", (_req, res) => {
+    res.status(404).json({ message: "Not Found" });
+  });
+
   const httpServer = createServer(app);
 
   return httpServer;
