@@ -23,10 +23,10 @@ function escapeHtml(unsafe: string): string {
  * Zod schema for validating contact form submissions.
  * Requires a name, a valid email, and a message of at least 10 characters.
  */
-const contactFormSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().email("Valid email is required"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+export const contactFormSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name is too long"),
+  email: z.string().trim().email("Valid email is required").max(255, "Email is too long"),
+  message: z.string().trim().min(10, "Message must be at least 10 characters").max(5000, "Message is too long"),
 });
 
 /**

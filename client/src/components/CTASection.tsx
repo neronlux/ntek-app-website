@@ -73,6 +73,7 @@ export default function CTASection() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
+                maxLength={100}
                 data-testid="input-contact-name"
               />
             </div>
@@ -86,6 +87,7 @@ export default function CTASection() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                maxLength={255}
                 data-testid="input-contact-email"
               />
             </div>
@@ -98,6 +100,7 @@ export default function CTASection() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 required
+                maxLength={5000}
                 rows={5}
                 className="resize-none"
                 data-testid="input-contact-message"
