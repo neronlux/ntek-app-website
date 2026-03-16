@@ -12,3 +12,7 @@
 **Vulnerability:** The `contactFormSchema` validated for minimum lengths but lacked `.max()` constraints, creating a potential Denial of Service (DoS) vector via extremely large payload submissions that could exhaust memory or processing resources.
 **Learning:** Input validation must restrict both the lower and upper bounds of inputs. Without upper bounds, applications are vulnerable to resource exhaustion.
 **Prevention:** Always enforce `.max()` limits on string inputs in validation schemas. Specifically, limit standard text fields (e.g., Names, Emails) and establish sensible bounds for larger fields (e.g., Messages).
+## 2026-03-16 - Dependency Upgrade for express-rate-limit
+**Vulnerability:** express-rate-limit had a high severity vulnerability where IPv4-mapped IPv6 addresses could bypass per-client rate limiting on servers with dual-stack network.
+**Learning:** This is a CVE fix. It was solved by bumping the package version from 8.2.1 to 8.3.1.
+**Prevention:** Periodically run `npm audit` and bump dependencies, especially ones handling rate limiting and security measures.
