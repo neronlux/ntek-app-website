@@ -22,6 +22,9 @@ export function securityHeaders(_req: Request, res: Response, next: NextFunction
   // Control how much referrer information is sent
   res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
 
+  // Enforce HTTPS-only access
+  res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
+
   // Content Security Policy
   const isDev = process.env.NODE_ENV === "development";
 

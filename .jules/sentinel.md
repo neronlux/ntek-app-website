@@ -12,3 +12,8 @@
 **Vulnerability:** The `contactFormSchema` validated for minimum lengths but lacked `.max()` constraints, creating a potential Denial of Service (DoS) vector via extremely large payload submissions that could exhaust memory or processing resources.
 **Learning:** Input validation must restrict both the lower and upper bounds of inputs. Without upper bounds, applications are vulnerable to resource exhaustion.
 **Prevention:** Always enforce `.max()` limits on string inputs in validation schemas. Specifically, limit standard text fields (e.g., Names, Emails) and establish sensible bounds for larger fields (e.g., Messages).
+
+## 2026-03-23 - express-rate-limit & HSTS
+**Vulnerability:** The application was using an older version of `express-rate-limit` (8.2.1) which has a high-severity vulnerability (GHSA-46wh-pxpv-q5gq) allowing IPv4-mapped IPv6 addresses to bypass rate limiting. Additionally, the custom security middleware was missing the crucial `Strict-Transport-Security` (HSTS) header.
+**Learning:** Security middleware and dependencies need regular audits. Relying on reverse proxies for IPv4/IPv6 translation can sometimes misalign with rate limiters if not properly patched. HSTS is a fundamental requirement for enforcing HTTPS that was missing from the otherwise robust manual security headers.
+**Prevention:** Regularly audit and update security dependencies, specifically monitoring for CVEs affecting middleware. Ensure all standard security headers, including HSTS, are explicitly defined in custom security implementations.
