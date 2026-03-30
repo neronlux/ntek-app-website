@@ -51,6 +51,9 @@ export function securityHeaders(_req: Request, res: Response, next: NextFunction
     `font-src ${fontSrc}`,
     `img-src ${imgSrc}`,
     `connect-src ${connectSrc}`,
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'none'",
     "upgrade-insecure-requests"
   ].join("; ");
 
