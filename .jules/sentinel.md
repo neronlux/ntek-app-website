@@ -17,3 +17,8 @@
 **Vulnerability:** The application was using an older version of `express-rate-limit` (8.2.1) which has a high-severity vulnerability (GHSA-46wh-pxpv-q5gq) allowing IPv4-mapped IPv6 addresses to bypass rate limiting. Additionally, the custom security middleware was missing the crucial `Strict-Transport-Security` (HSTS) header.
 **Learning:** Security middleware and dependencies need regular audits. Relying on reverse proxies for IPv4/IPv6 translation can sometimes misalign with rate limiters if not properly patched. HSTS is a fundamental requirement for enforcing HTTPS that was missing from the otherwise robust manual security headers.
 **Prevention:** Regularly audit and update security dependencies, specifically monitoring for CVEs affecting middleware. Ensure all standard security headers, including HSTS, are explicitly defined in custom security implementations.
+
+## 2026-04-10 - Sensitive API Response Caching
+**Vulnerability:** The application was missing `Cache-Control` headers on `/api` routes. This could allow intermediate proxies (like CDNs) or browsers to cache and potentially leak sensitive API responses (e.g. user details or session state) to unauthorized users.
+**Learning:** By default, if caching headers are not explicitly set, browsers or proxies might heuristically cache responses. Always define strict caching rules for API endpoints that handle dynamic or sensitive data.
+**Prevention:** Apply a global middleware to all `/api` routes that explicitly sets `Cache-Control: no-store, max-age=0`, `Pragma: no-cache`, and `Expires: 0` headers to completely disable caching of API responses.

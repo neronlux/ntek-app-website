@@ -31,6 +31,14 @@ app.use(express.json({
 // Middleware to parse URL-encoded bodies
 app.use(express.urlencoded({ extended: false }));
 
+// Middleware to prevent caching of API responses
+app.use("/api", (req, res, next) => {
+  res.setHeader("Cache-Control", "no-store, max-age=0");
+  res.setHeader("Pragma", "no-cache");
+  res.setHeader("Expires", "0");
+  next();
+});
+
 // Logging middleware to track API requests and responses
 app.use((req, res, next) => {
   const start = Date.now();
