@@ -14,6 +14,12 @@ app.disable('x-powered-by');
 // Add security headers to all responses
 app.use(securityHeaders);
 
+// Prevent caching of API responses to avoid leaking sensitive data
+app.use('/api', (_req, res, next) => {
+  res.setHeader('Cache-Control', 'no-store, max-age=0');
+  next();
+});
+
 // Extend the http module to include a rawBody property on IncomingMessage
 declare module 'http' {
   interface IncomingMessage {
